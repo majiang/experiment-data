@@ -1,0 +1,5 @@
+20141022-dynamic/outputs/*.csv
+*.exe
+*.obj
+*.pyc
+*.zip
