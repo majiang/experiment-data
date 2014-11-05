@@ -42,7 +42,7 @@ void main()
 					buildPath("..",
 						"proc-out",
 						"%dgenz%d-s%02d.csv".format(
-							genz_coeff, genz_class, dimR))
+							genz_coeff * [1, 10][genz_class == 4], genz_class, dimR))
 					).readln().csvReader!Record().front;
 				output.writef("%s$%.4f$", sep, record.slope);
 				buf ~= "%s%.4f".format(sep, record.tscore.t_to_p(record.degree_of_freedom));

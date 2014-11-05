@@ -9,8 +9,10 @@ def get_sup_err(line):
 	return '%d,%.15f\n' % (m, log(err, 2))
 
 if __name__ == '__main__':
-	for genz_coef in [1, 2, 4]:
-		for genz_class in range(6):
+	for genz_class in range(6):
+		for genz_coef in [1, 2, 4]:
+			if genz_class == 4:
+				genz_coef *= 10
 			for s in range(4, 17):
 				out_file = open(
 					join('..', 'sup-err', '%dgenz%d-s%02d.csv' % (genz_coef, genz_class, s)),
