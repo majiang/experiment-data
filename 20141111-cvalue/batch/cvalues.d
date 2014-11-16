@@ -1,6 +1,7 @@
 import std.stdio;
 import std.path;
 import std.string;
+import std.range;
 import std.conv : to;
 
 enum n = 32;
@@ -26,7 +27,7 @@ void main(string[] args)
 			auto data_file = File("..".buildPath("..", "20141022-dynamic", "pointsets", "s%02d-m%02d-n%02d.csv".format(s, m, n)));
 			auto c = tryReadCvalue(data_file);
 			out_csv.writef(",%s", c);
-			out_tex.writef(" & $ %s$", c); //additional space is for c = "" case.
+			out_tex.writef(c.empty ? " &%s" : " & $%s$", c);
 		}
 		out_csv.writeln();
 		out_tex.writeln(" \\\\");
