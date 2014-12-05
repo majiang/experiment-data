@@ -3,3 +3,5 @@
 *.obj
 *.pyc
 *.zip
+*.obj
+*.o
