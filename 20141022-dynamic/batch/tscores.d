@@ -30,11 +30,17 @@ void main()
 {
 	foreach (genz_class; 0..6)
 	{
-		auto output = File(buildPath("..", "result", "slope-pvalue-%d.tex".format(genz_class)), "w");
+		version (tex)
+			auto output = File(buildPath("..", "result", "slope-pvalue-%d.tex".format(genz_class)), "w");
+		else
+			auto output = File(buildPath("..", "result", "slope-pvalue-%d.csv".format(genz_class)), "w");
 		foreach (dimR; 4..17)
 		{
 			output.write(dimR);
-			string sep = " & ";
+			version (tex)
+				string sep = " & ";
+			else
+				string sep = ",";
 			string buf;
 			foreach (genz_coeff; [1, 2, 4])
 			{
@@ -44,10 +50,21 @@ void main()
 						"%dgenz%d-s%02d.csv".format(
 							genz_coeff * [1, 10][genz_class == 4], genz_class, dimR))
 					).readln().csvReader!Record().front;
-				output.writef("%s$%.4f$", sep, record.slope);
-				buf ~= "%s%.4f".format(sep, record.tscore.t_to_p(record.degree_of_freedom));
+				version (tex)
+				{
+					output.writef("%s$%.4f$", sep, record.slope);
+					buf ~= "%s%.4f".format(sep, record.tscore.t_to_p(record.degree_of_freedom));
+				}
+				else
+				{
+					output.writef("%s%.8e", sep, record.slope);
+					buf ~= "%s%.8e".format(sep, record.tscore.t_to_p(record.degree_of_freedom));
+				}
 			}
-			output.writefln("%s \\\\", buf);
+			version (tex)
+				output.writefln("%s \\\\", buf);
+			else
+				output.writefln("%s", buf);
 		}
 		//output.writeln("\\hline");
 	}
