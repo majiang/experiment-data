@@ -7,3 +7,5 @@
 *.o
 20141117-nxseq-err/*m08m17*.csv
 20141117-nxseq-err/*m17m23*.csv
+20141212-compare/*.p*
+*.db
