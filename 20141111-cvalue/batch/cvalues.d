@@ -24,7 +24,9 @@ void main(string[] args)
 		out_tex.writef("$%s$", m);
 		foreach (s; smin..smax)
 		{
-			auto data_file = File("..".buildPath("..", "20141022-dynamic", "pointsets", "s%02d-m%02d-n%02d.csv".format(s, m, n)));
+			auto data_file = File("..".buildPath("..",
+				m <= 22 ? "20141022-dynamic" : "20141105-larger"
+				, "pointsets", "s%02d-m%02d-n%02d.csv".format(s, m, n)));
 			auto c = tryReadCvalue(data_file);
 			out_csv.writef(",%s", c);
 			out_tex.writef(c.empty ? " &%s" : " & $%s$", c);
@@ -32,7 +34,7 @@ void main(string[] args)
 		out_csv.writeln();
 		out_tex.writeln(" \\\\");
 	}
-	out_tex.write("\\hline");
+	out_tex.writeln("\\hline");
 }
 
 auto tryReadCvalue(File file)
