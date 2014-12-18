@@ -1,4 +1,5 @@
 20141022-dynamic/outputs/*.csv
+20141111-cvalue/cvalues/*.xlsx
 *.exe
 *.obj
 *.pyc
