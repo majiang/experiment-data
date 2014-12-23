@@ -35,7 +35,7 @@ void main(string[] args)
 		out_csv.writeln();
 		out_tex.writeln(" \\\\");
 	}
-	out_tex.writeln("\\hline");
+//	out_tex.writeln("\\hline");
 }
 
 auto tryReadCvalue(string output_type)(File file)
