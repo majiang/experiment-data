@@ -16,6 +16,15 @@ class TableWriter(string format, string separator, string lineSeparator, string 
 			sink.write(defaultValue);
 		firstLine = false;
 	}
+	auto rawWrite(string arg)
+	{
+		sink.write(arg);
+		return this;
+	}
+	void rawWriteSep()
+	{
+		sink.write(separator);
+	}
 	void writeln()
 	{
 		sink.writeln(lineSeparator);
@@ -27,4 +36,4 @@ private:
 }
 
 alias CSVWriter = TableWriter!("%.15e", ",", "", "", real);
-alias TeXWriter = TableWriter!("$%.2f$", " & ", "\\", "", real);
+alias TeXWriter = TableWriter!("$%.2f$", " & ", "\\\\", "", real);
