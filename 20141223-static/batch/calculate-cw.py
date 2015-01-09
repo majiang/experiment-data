@@ -14,17 +14,20 @@ def target(s, m0):
 
 
 # reset
-for m0 in range(8, 31):
-	for s in range(4, 17):
-		print 'copy dummy.csv %s' % target(s, m0)
+#for m0 in range(8, 31):
+#	for s in range(4, 17):
+#		print 'copy dummy.csv %s' % target(s, m0)
 
-for m in range(8, 31):
-	for s in range(4, 17):
-		for m0 in range(8, 31):
+#for m in range(8, 31):
+#	for s in range(4, 17):
+#		for m0 in range(8, 31):
+for m in [26]:
+	for s in [14]:
+		for m0 in range(28, 31):
 			try:
 				c = cvalue(s, m0)
 			except:
-				print 'skip(%d, %d)' % (s, m0)
+				print 'rem skip(%d, %d)' % (s, m0)
 				continue
 			print '%s %s < %s >> %s' % (
 				join('..', 'executable', 'calculate-cw.exe'),
