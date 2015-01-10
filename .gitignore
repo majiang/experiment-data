@@ -10,3 +10,8 @@
 20141117-nxseq-err/*m17m23*.csv
 20141212-compare/*.p*
 *.db
+20150109-static-naive/all/*
+20150109-static-naive/good/*
+20150109-static-naive/all-concat/*
+20150109-static-naive/plt/*
+20150109-static-naive/pdf/*

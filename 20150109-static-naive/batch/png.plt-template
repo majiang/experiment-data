@@ -1,0 +1,4 @@
+set datafile separator ","
+set terminal png
+set output "../png/s%02d.png"
+plot "../all-concat/s%02d-m%02d-m%02d-c1.csv", "../nx/s%02d-c1.csv" w l
