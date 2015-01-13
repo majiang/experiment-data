@@ -1,6 +1,6 @@
 set datafile separator ","
-set terminal png
-set output "../png/c%d-s%02d.png"
+set terminal pdfcairo
+set output "../pdf/c%d-s%02d.pdf"
 set xlabel "m"
 set ylabel "lg W%d(P)"
 plot "../all-concat/s%02d-m%02d-m%02d-c%d.csv" title "random 1000", "../nx/s%02d-c%d.csv" w l title "NX sequence"
