@@ -1,0 +1,4 @@
+set terminal %s
+set output "../%s/%s.%s"
+set datafile separator ","
+plot "%s" title "optimized", "%s" w l title "NX sequence"
